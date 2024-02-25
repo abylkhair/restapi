@@ -1,8 +1,10 @@
-package entities
+package dto
 
 import "time"
 
-type CurrencyRate struct {
+// dto шаблон проектирования почитать
+
+type Coin struct {
 	Id               string    `json:"id"`     //old as world
 	Title            string    `json:"title"`  //tenge, ruble, dollar
 	Symbol           string    `json:"symbol"` //KZT,RUB,USD
@@ -10,11 +12,11 @@ type CurrencyRate struct {
 	MaxChangePercent float64   `json:"maxChangePercent"`
 	MinChangePercent float64   `json:"minChangePercent"`
 	CreatedAt        time.Time `json:"createdAt" `
-	UpdatedAt        time.Time `json:"updatedAt"`
+	UpdatedAt        time.Time `json:"updatedAt"` // dto шаблон
 }
 
-func NewCurrencyRate(id, title, symbol string, price float64) *CurrencyRate {
-	return &CurrencyRate{
+func NewCoin(id, title, symbol string, price float64) *Coin {
+	return &Coin{
 		Id:               id,
 		Title:            title,
 		Symbol:           symbol,
