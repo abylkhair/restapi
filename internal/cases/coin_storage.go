@@ -6,8 +6,9 @@ import (
 )
 
 type CoinStorage interface {
-	getCoins(context.Context) ([]entities.Coin, error)
+	GetCoins(context.Context) ([]entities.Coin, error)
 	GetCoinByName(context.Context, string) (entities.Coin, error)
-	PostCoin(context.Context, entities.Coin) error
-	DeleteCoin(context.Context, entities.Coin) error
+	StoreCoin(context.Context, entities.Coin) error
 }
+
+//mocks for interface
