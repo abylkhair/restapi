@@ -6,6 +6,5 @@ import (
 )
 
 type CryptoClient interface {
-	GetActualValue(context.Context) (entities.Coin, error)
-	GetActualValueByName(context.Context, string) (string, error)
+	GetActualValue(ctx context.Context, title []string) (map[string]entities.Coin, error)
 }

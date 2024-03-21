@@ -5,10 +5,11 @@ import (
 	"restapi/internal/entities"
 )
 
-type CoinStorage interface {
-	GetCoins(context.Context) ([]entities.Coin, error)
-	GetCoinByName(context.Context, string) (entities.Coin, error)
-	StoreCoin(context.Context, entities.Coin) error
+type Coins interface {
+	GetCoins(ctx context.Context) ([]entities.Coin, error)
+	GetCoinByName(ctx context.Context, coin string) (entities.Coin, error)
+	StoreCoin(ctx context.Context, coins entities.Coin) error
+	GetTitles(ctx context.Context) ([]string, error)
 }
 
 //mocks for interface
