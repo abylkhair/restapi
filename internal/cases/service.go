@@ -29,9 +29,6 @@ func (s *Service) GetActualValue(ctx context.Context) ([]entities.Coin, error) {
 	rates = append(rates, coins...)
 	return rates, nil
 }
-func (s *Service) GetCoin(ctx context.Context, coin string) ([]string, error) {
-
-}
 
 func (s *Service) GetValuesFromSrc(ctx context.Context, newTitle string) error {
 	titles, err := s.storage.GetTitles(ctx) //можно вынести
@@ -55,10 +52,12 @@ func (s *Service) GetValuesFromSrc(ctx context.Context, newTitle string) error {
 	return nil
 }
 
-//GetACtualRates->Storage(last value of coin string)
-//GetActualRates->Storage(string coin)->CryptoClient(coin (if coin == ""))
-//StoreActualRates->CryptoClient()->Storage(save)
-
-// two adapters needed
-//work with storage
-//work with cryptoapi
+// every 5 min send data
+// max min average sending in one query
+//adapter for telegram config it there
+//two scenarios with work in telegram
+//cryptocompare.com  //
+// min max in service not outer
+//
+// /start-auto {minutes_count} (пример /start-auto 10, что значит отправлять каждые 10 минут)
+//cron
