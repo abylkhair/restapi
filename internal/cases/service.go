@@ -13,7 +13,10 @@ type Service struct {
 	logger  *logrus.Logger
 }
 
+// here we will have basic logic that works with other services storage and other stuff
 // мы получаем абсолютно все значения из базы и обновляем монеты
+// нужно получить все монеты
+// нужно получить монеты по названию
 func (s *Service) GetActualValue(ctx context.Context) ([]entities.Coin, error) {
 	var rates []entities.Coin
 	coins, err := s.storage.GetCoins(ctx)
